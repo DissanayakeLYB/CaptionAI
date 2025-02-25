@@ -4,10 +4,9 @@ import React from 'react'
 const App = () => {
   return (
     <View>
-      <Text>Coffee shop</Text>
+      <Text>App</Text>
     </View>
   )
 }
 
 export default App;
-
