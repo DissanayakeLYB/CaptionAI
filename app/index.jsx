@@ -5,6 +5,8 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Image,
+  ScrollView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
@@ -28,54 +30,57 @@ const LandingScreen = () => {
   }
 
   return (
-    <LinearGradient
-      colors={['#7C3AED', '#2241b1']}
-      style={styles.gradient}
-    >
-      <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.logoText}>CaptionAI</Text>
-        </View>
-
-        <Text style={styles.headline}>Generate Perfect Captions Instantly!</Text>
-
-        <View style={styles.cardContainer}>
-          <View style={styles.card}>
-            <Text style={styles.cardHeadline}>AI-Powered Creativity</Text>
-            <Text style={styles.cardText}>Smart captions tailored to your content</Text>
+    <ScrollView>
+      <LinearGradient
+        colors={['#7C3AED', '#2241b1']}
+        style={styles.gradient}
+      >
+        <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
+          <Image source={require('../assets/images/logo.png')} />
+          <View style={styles.headerContainer}>
+            <Text style={styles.logoText}>CaptionAI</Text>
           </View>
 
-          <View style={styles.card}>
-            <Text style={styles.cardHeadline}>Lightning Fast</Text>
-            <Text style={styles.cardText}>Get captions in seconds</Text>
+          <Text style={styles.headline}>Generate Perfect Captions Instantly!</Text>
+
+          <View style={styles.cardContainer}>
+            <View style={styles.card}>
+              <Text style={styles.cardHeadline}>AI-Powered Creativity</Text>
+              <Text style={styles.cardText}>Smart captions tailored to your content</Text>
+            </View>
+
+            <View style={styles.card}>
+              <Text style={styles.cardHeadline}>Lightning Fast</Text>
+              <Text style={styles.cardText}>Get captions in seconds</Text>
+            </View>
+
+            <View style={styles.card}>
+              <Text style={styles.cardHeadline}>Multiple Styles</Text>
+              <Text style={styles.cardText}>Proffesional to casual tones</Text>
+            </View>
           </View>
 
-          <View style={styles.card}>
-            <Text style={styles.cardHeadline}>Multiple Styles</Text>
-            <Text style={styles.cardText}>Proffesional to casual tones</Text>
+
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.signUpButton}>
+              <Text style={styles.signUpButtonText}>Sign Up</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.loginButton}>
+              <Text style={styles.loginButtonText}>Log In</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.guestButton}>
+              <Text style={styles.guestButtonText}>Continue as Guest</Text>
+            </TouchableOpacity>
           </View>
-        </View>
 
-
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.signUpButton}>
-            <Text style={styles.signUpButtonText}>Sign Up</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>Log In</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.guestButton}>
-            <Text style={styles.guestButtonText}>Continue as Guest</Text>
-          </TouchableOpacity>
-        </View>
-
-        <Text style={styles.footerText}>
-          By continuing, you agree to our Terms & Privacy Policy
-        </Text>
-      </SafeAreaView>
-    </LinearGradient>
+          <Text style={styles.footerText}>
+            By continuing, you agree to our Terms & Privacy Policy
+          </Text>
+        </SafeAreaView>
+      </LinearGradient>
+    </ScrollView>
   );
 };
 
@@ -93,12 +98,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoText: {
-    fontSize: 20,
+    fontSize: 30,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF',
-    marginBottom: 10,
+    marginBottom: 5,
     fontWeight: '900',
-    letterSpacing: 0.8,
+    letterSpacing: 0.5,
   },
   headline: {
     fontSize: 13,
@@ -127,19 +132,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF',
-    fontWeight: '500',
+    fontWeight: '700',
     marginBottom: 3,
+    letterSpacing: 0.3,
   },
   cardText: {
     fontSize: 12,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF80',
+    letterSpacing: 0.3,
     textAlign: 'center',
   },
   buttonContainer: {
     width: '100%',
     marginTop: 40,
     alignItems: 'center',
+    marginBottom:100,
   },
   signUpButton: {
     backgroundColor: '#FFFFFF',
