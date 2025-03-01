@@ -1,20 +1,14 @@
 import React, { useCallback } from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
-
-SplashScreen.preventAutoHideAsync();
+import { useRouter } from 'expo-router';
 
 const LandingScreen = () => {
+
+  const router = useRouter();
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
   });
@@ -36,7 +30,7 @@ const LandingScreen = () => {
         style={styles.gradient}
       >
         <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
-          <Image source={require('../assets/images/logo.png')} />
+          <Image style={styles.image} source={require('../assets/images/logo.png')} />
           <View style={styles.headerContainer}>
             <Text style={styles.logoText}>CaptionAI</Text>
           </View>
@@ -62,7 +56,7 @@ const LandingScreen = () => {
 
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.signUpButton}>
+            <TouchableOpacity style={styles.signUpButton} onPress={() => router.push('/signup')}>
               <Text style={styles.signUpButtonText}>Sign Up</Text>
             </TouchableOpacity>
 
@@ -88,13 +82,19 @@ const styles = StyleSheet.create({
   gradient: {
     flex: 1,
   },
+  image : {
+    marginTop: 50,
+    borderRadius: 20,
+    width: 150,
+    height: 150,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 20,
   },
   headerContainer: {
-    marginTop: 50,
+    marginTop: 10,
     alignItems: 'center',
   },
   logoText: {
