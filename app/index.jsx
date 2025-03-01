@@ -56,15 +56,15 @@ const LandingScreen = () => {
 
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.signUpButton} onPress={() => router.push('/signup')}>
+            <TouchableOpacity style={styles.signUpButton} onPress={() => router.push('/sign_up')}>
               <Text style={styles.signUpButtonText}>Sign Up</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.loginButton}>
+            <TouchableOpacity style={styles.loginButton} onPress={() => router.push('/log_in')}>
               <Text style={styles.loginButtonText}>Log In</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.guestButton}>
+            <TouchableOpacity style={styles.guestButton} onPress={() => router.push('/home')}>
               <Text style={styles.guestButtonText}>Continue as Guest</Text>
             </TouchableOpacity>
           </View>
@@ -81,12 +81,13 @@ const LandingScreen = () => {
 const styles = StyleSheet.create({
   gradient: {
     flex: 1,
+    minHeight: '100vh',
   },
   image : {
     marginTop: 50,
     borderRadius: 20,
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
   },
   container: {
     flex: 1,
