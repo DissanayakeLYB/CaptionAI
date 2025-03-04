@@ -38,7 +38,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: '#F8F9FC' }}>
+    <ScrollView style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
         <View style={styles.header}>
           <View style={styles.logoContainer}>
@@ -70,21 +70,39 @@ const HomeScreen = () => {
 
         <View style={styles.captionCardContainer}>
           <View style={styles.captionCard}>
-            <Text style={styles.captionTag}>Trendy</Text>
+            <View style={styles.captionHeadline}>
+              <Ionicons name="logo-instagram" size={16} color="#7C3AED" />
+              <Text style={{ fontSize: 14, color: '#7C3AED', marginBottom: 5 }}>Trendy</Text>
+            </View>
             <Text style={styles.captionText}>Living my best life with this amazing view! #blessed #wanderlust #photooftheday</Text>
-            <TouchableOpacity><Text style={styles.copyText}>Copy</Text></TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+              <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+              <Text style={styles.copyText}>Copy</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.captionCard}>
-            <Text style={styles.captionTag}>Professional</Text>
+            <View style={styles.captionHeadline}>
+              <Ionicons name="logo-linkedin" size={16} color="#3b82f6" />
+              <Text style={{ fontSize: 14, color: '#3b82f6', marginBottom: 5 }}>Professional</Text>
+            </View>
             <Text style={styles.captionText}>Excited to share insights from our latest innovation project. Embracing new challenges and pushing boundaries.</Text>
-            <TouchableOpacity><Text style={styles.copyText}>Copy</Text></TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+              <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+              <Text style={styles.copyText}>Copy</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.captionCard}>
-            <Text style={styles.captionTag}>Funny</Text>
+            <View style={styles.captionHeadline}>
+              <Ionicons name="logo-twitter" size={16} color="#f97316" />
+              <Text style={{ fontSize: 14, color: '#f97316', marginBottom: 5 }}>Funny</Text>
+            </View>
             <Text style={styles.captionText}>When your coffee kicks in and suddenly you’re ready to conquer the world... or at least your inbox!</Text>
-            <TouchableOpacity><Text style={styles.copyText}>Copy</Text></TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+              <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+              <Text style={styles.copyText}>Copy</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -119,7 +137,7 @@ const styles = StyleSheet.create({
   header:{
     flexDirection: 'row', 
     justifyContent: 'space-between', 
-    width: '90%', 
+    width: '100%', 
     alignItems: 'center',
   },
   logoContainer: {
@@ -137,12 +155,16 @@ const styles = StyleSheet.create({
     marginVertical: 20 
   },
   uploadBox: { 
-    width: '90%', 
-    height: 250, 
+    width: '95%', 
+    height: 350, 
     borderRadius: 10, 
     justifyContent: 'center',
     alignItems: 'center', 
-    marginBottom: 20 
+    marginBottom: 20,
+    backgroundColor: '#e0e7ff70',
+    borderColor: '#6366f1',
+    borderWidth: 1,
+    borderStyle: 'dashed',
   },
   uploadContent: { 
     alignItems: 'center' 
@@ -157,7 +179,7 @@ const styles = StyleSheet.create({
     color: '#A0AEC0' 
   },
   sectionTitleContainer: {
-    width: '90%', 
+    width: '95%', 
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     alignItems: 'center', 
@@ -174,6 +196,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   regenerateText: { 
+    fontSize: 12, 
     color: '#7C3AED' 
   },
   captionCardContainer: { 
@@ -181,11 +204,11 @@ const styles = StyleSheet.create({
     alignItems: 'center' 
   },
   captionCard: { 
-    width: '90%', 
+    width: '95%', 
     backgroundColor: '#FFFFFF', 
     borderRadius: 10, 
     padding: 15, 
-    marginVertical: 5, 
+    marginVertical: 8, 
     elevation: 2 
   },
   captionTag: { 
@@ -193,10 +216,16 @@ const styles = StyleSheet.create({
     color: '#7C3AED', 
     marginBottom: 5 
   },
+  captionHeadline: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: 5,
+    marginBottom: 5
+  },
   captionText: { 
     fontSize: 14, 
     color: '#2D3748', 
-    marginBottom: 10 
+    marginBottom: 10,
   },
   copyText: { 
     fontSize: 12, 
