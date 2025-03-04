@@ -85,9 +85,10 @@ const styles = StyleSheet.create({
   },
   image : {
     marginTop: 50,
+    marginBottom: 10,
     borderRadius: 20,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
   container: {
     flex: 1,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 30,
   },
   card: {
     backgroundColor: '#FFFFFF20',
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     position: 'absolute',
-    bottom: 20,
+    bottom: 30,
     width: '100%',
     textAlign: 'center',
     color: '#FFFFFF',
