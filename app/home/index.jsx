@@ -75,10 +75,16 @@ const HomeScreen = () => {
               <Text style={{ fontSize: 14, color: '#7C3AED', marginBottom: 5 }}>Trendy</Text>
             </View>
             <Text style={styles.captionText}>Living my best life with this amazing view! #blessed #wanderlust #photooftheday</Text>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-              <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
-              <Text style={styles.copyText}>Copy</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                <Text style={styles.copyText}>Edit</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                <Text style={styles.copyText}>Copy</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <View style={styles.captionCard}>
@@ -107,22 +113,26 @@ const HomeScreen = () => {
         </View>
 
         <View style={styles.navBar}>
-          <View style={styles.navBarCard}>
-            <TouchableOpacity onPress={() => router.push('/home')}><Ionicons name="home-outline" size={24} color="#7C3AED" /></TouchableOpacity>
-            <Text style={styles.navBarTextActive} >Home</Text>
-          </View>
-          <View style={styles.navBarCard}>
-            <TouchableOpacity onPress={() => router.push('/edits')}><Ionicons name="create-outline" size={24} color="#A0AEC0" /></TouchableOpacity>
-            <Text style={styles.navBarText} >Create</Text>
-          </View>
-          <View style={styles.navBarCard}>
-            <TouchableOpacity onPress={() => router.push('/edits')}><Ionicons name="time-outline" size={24} color="#A0AEC0" /></TouchableOpacity>
-            <Text style={styles.navBarText} >History</Text>
-          </View>
-          <View style={styles.navBarCard}>
-            <TouchableOpacity onPress={() => router.push('/settings')}><Ionicons name="settings-outline" size={24} color="#A0AEC0" /></TouchableOpacity>
-            <Text style={styles.navBarText} >Settings</Text>
-          </View>
+          <TouchableOpacity onPress={() => router.push('/home')}>
+            <View style={styles.navBarCard}>
+              <Ionicons name="home-outline" size={24} color="#7C3AED" />
+              <Text style={styles.navBarTextActive} >Home</Text>
+            </View>
+          </TouchableOpacity>
+            
+          <TouchableOpacity onPress={() => router.push('/saved_captions')}>
+            <View style={styles.navBarCard}>
+              <Ionicons name="time-outline" size={24} color="#A0AEC0" />
+              <Text style={styles.navBarText} >History</Text>
+            </View>
+          </TouchableOpacity>
+            
+          <TouchableOpacity onPress={() => router.push('/settings')}>
+            <View style={styles.navBarCard}>
+              <Ionicons name="settings-outline" size={24} color="#A0AEC0" />
+              <Text style={styles.navBarText} >Settings</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </ScrollView>
