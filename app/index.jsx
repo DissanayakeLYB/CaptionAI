@@ -81,7 +81,7 @@ const LandingScreen = () => {
 const styles = StyleSheet.create({
   gradient: {
     flex: 1,
-    minHeight: '100vh',
+    minHeight: '100%',
   },
   image : {
     marginTop: 50,
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF',
-    marginBottom: 10,
+    marginBottom: 5,
     fontWeight: '900',
     letterSpacing: 0.5,
   },
@@ -111,8 +111,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF80',
     textAlign: 'center',
-    marginTop: 2,
-    letterSpacing: 0.3,
   },
   cardContainer: {
     width: '100%',
@@ -135,20 +133,18 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: '400',
     marginBottom: 3,
-    letterSpacing: 0.3,
   },
   cardText: {
     fontSize: 12,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF80',
-    letterSpacing: 0.3,
     textAlign: 'center',
   },
   buttonContainer: {
     width: '100%',
     marginTop: 40,
     alignItems: 'center',
-    marginBottom:100,
+    marginBottom:10,
   },
   signUpButton: {
     backgroundColor: '#FFFFFF',
@@ -189,7 +185,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 20,
     width: '100%',
     textAlign: 'center',
     color: '#FFFFFF',

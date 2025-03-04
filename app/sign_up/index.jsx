@@ -34,7 +34,7 @@ const SignUpScreen = () => {
           <View style={styles.card}>
             <TextInput
               style={styles.input}
-              placeholder="Name"
+              placeholder="Username"
               placeholderTextColor="#FFFFFF90"
             />
             <TextInput
@@ -62,9 +62,11 @@ const SignUpScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity onPress={() => router.push('/log_in')}>
-            <Text style={styles.loginText}>Already have an account? Log In</Text>
-          </TouchableOpacity>
+          
+          <Text style={styles.loginText}>
+            Already have an account? <TouchableOpacity onPress={() => router.push('/log_in')}><Text style={{color:'#ffffff90', }}>Log In</Text></TouchableOpacity>
+          </Text>
+          
 
           <Text style={styles.footerText}>
             By signing up, you agree to our Terms & Privacy Policy
@@ -77,38 +79,32 @@ const SignUpScreen = () => {
 
 const styles = StyleSheet.create({
   gradient: {
-    flex: 1,
-    minHeight: '100vh',
+    flex: 1,    
+    minHeight: '100%',    
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    marginVertical: 50,
   },
   image: {
-    marginTop: 50,
+    marginBottom: 10,
     borderRadius: 20,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
   logoText: {
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF',
-    marginBottom: 30,
-    marginTop: 10,
+    marginBottom: 20,
     fontWeight: '900',
-    letterSpacing: 0.5,
   },
   card: {
-    backgroundColor: '#FFFFFF20',
-    width: '90%',
-    padding: 20,
-    borderRadius: 12,
+    width: '85%',
+    borderRadius: 20,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#FFFFFF60',
   },
   input: {
     width: '98%',
@@ -117,7 +113,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FFFFFF60',
     borderRadius: 8,
-    backgroundColor: '#FFFFFF10',
+    backgroundColor: '#FFFFFF20',
     color: '#FFFFFF',
     fontFamily: 'Inter_400Regular',
   },
@@ -145,7 +141,7 @@ const styles = StyleSheet.create({
   footerText: {
     position: 'absolute',
     bottom: 20,
-    width: '98%',
+    width: '100%',
     textAlign: 'center',
     color: '#FFFFFF',
     fontFamily: 'Inter_400Regular',

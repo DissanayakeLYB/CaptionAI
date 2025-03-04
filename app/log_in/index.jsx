@@ -47,10 +47,9 @@ const LoginScreen = () => {
             <Text style={styles.loginButtonText}>Log In</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.guestButton} onPress={() => router.push('/sign_up')}>
-            <Text style={styles.guestButtonText}>Don't have an account? Sign Up</Text>
-          </TouchableOpacity>
-
+          <Text style={styles.guestButtonText}>
+            Don't have an account? <TouchableOpacity onPress={() => router.push('/sign_up')}><Text style={{color:'#ffffff90', }}>Sign Up</Text></TouchableOpacity>
+          </Text>
         </SafeAreaView>
       </LinearGradient>
     </ScrollView>
@@ -60,23 +59,21 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   gradient: {
     flex: 1,
-    minHeight: '100vh',
+    minHeight: '100%',
   },
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
-
   },
   image: {
-    marginTop: 50,
     borderRadius: 20,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
   logoText: {
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: 'Inter_400Regular',
     color: '#FFFFFF',
     marginBottom: 30,
@@ -100,7 +97,7 @@ const styles = StyleSheet.create({
     width: '90%',
     paddingVertical: 16,
     borderRadius: 8,
-    marginTop: 20,
+    marginVertical: 20,
     alignItems: 'center',
   },
   loginButtonText: {
@@ -108,9 +105,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter_400Regular',
     fontSize: 14,
     fontWeight: '900',
-  },
-  guestButton: {
-    marginTop: 15,
   },
   guestButtonText: {
     color: '#FFFFFF90',
