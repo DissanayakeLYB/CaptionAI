@@ -10,7 +10,7 @@ const EditCustomizeScreen = () => {
     return (
         <ScrollView>
             <SafeAreaView style={styles.container}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
                         <Ionicons name="chevron-back" size={24} color="black" />
                     </TouchableOpacity>
@@ -25,26 +25,28 @@ const EditCustomizeScreen = () => {
                         multiline
                         value={caption}
                         onChangeText={setCaption}
+                        autoFocus
                     />
                     <Text style={styles.captionCounter}>{caption.length}/300</Text>
                 </View>
 
                 <TouchableOpacity style={styles.shuffleButton}>
-                    <Ionicons name="reload-outline" size={24} color="#3B82F6" />
+                    <Ionicons name="reload-outline" size={14} color="#3B82F6" />
                     <Text style={styles.shuffleButtonText}>Shuffle Caption</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.copyButton}>
-                    <Ionicons name="copy-outline" size={24} color="#ffffff" />
+                    <Ionicons name="copy-outline" size={14} color="#ffffff" />
                     <Text style={styles.copyButtonText}>Copy Caption</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.shareButton}>
-                    <Ionicons name="share-outline" size={24} color="#ffffff" />
+                    <Ionicons name="share-outline" size={14} color="#ffffff" />
                     <Text style={styles.shareButtonText}>Share</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.saveButton}>
+                    <Ionicons name="gift" size={14} color="#A16207" />
                     <Text style={styles.saveButtonText}>Save to History (Premium)</Text>
                 </TouchableOpacity>    
 
@@ -55,11 +57,13 @@ const EditCustomizeScreen = () => {
 
 const styles = StyleSheet.create({
     container: { 
+        minHeight: '100%',
         flex: 1, 
         padding: 20, 
-        backgroundColor: '#FFFFFF' 
+        backgroundColor: '#FFFFFF',
     },
     backButton: { 
+        display: '',
         marginBottom: 20 
     },
     title: { 
@@ -97,8 +101,10 @@ const styles = StyleSheet.create({
 
     },
     captionInput: { 
-        minHeight: 80, 
-        fontSize: 14, 
+        minHeight: 60, 
+        letterSpacing: 0.5,
+        lineHeight: 20,
+        fontSize: 15, 
         color: '#333' 
     },
     captionCounter: { 
@@ -118,7 +124,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
-    shuffleButtonText: { 
+    shuffleButtonText: {
+        fontSize : 16,
         color: '#3B82F6' 
     },
     copyButton: { 
@@ -133,6 +140,7 @@ const styles = StyleSheet.create({
 
     },
     copyButtonText: { 
+        fontSize : 16,
         color: '#FFFFFF', 
     },
     shareButton: { 
@@ -146,7 +154,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     shareButtonText: { 
-        color: '#FFFFFF' 
+        fontSize : 16,
+        color: '#FFFFFF',
     },
     saveButton: { 
         flexDirection: 'row',
@@ -159,6 +168,7 @@ const styles = StyleSheet.create({
     },
     saveButtonText: { 
         color: '#A16207', 
+        fontSize : 16,
         fontWeight: 'bold' 
     },
 });
