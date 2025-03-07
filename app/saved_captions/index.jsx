@@ -6,31 +6,48 @@ import { Ionicons } from '@expo/vector-icons';
 const SavedCaptionsScreen = () => {
     const router = useRouter();
     const [searchText, setSearchText] = useState('');
+    const [selectedFilter, setSelectedFilter] = useState('All');
     
     const captions = [
         {
-            image: '../../assets/images/placeholder.jpeg',
+            image: 'https://media.istockphoto.com/id/1453838542/photo/last-light-on-mount-sneffels.jpg?s=1024x1024&w=is&k=20&c=H9NmtkT7rvHX_8gGtVEXQywZPaINNBTbOovIu1TbJvU=',
             text: 'Exploring new horizons and embracing the journey. Every step matters.',
             time: '2 hours ago',
             platform: 'Instagram',
-            color: '#7C3AE5',
+            color: '#d62976',
             icon: 'logo-instagram',
         },
         {
-            image: '../../assets/images/placeholder.jpeg',
+            image: 'https://media.istockphoto.com/id/1453838542/photo/last-light-on-mount-sneffels.jpg?s=1024x1024&w=is&k=20&c=H9NmtkT7rvHX_8gGtVEXQywZPaINNBTbOovIu1TbJvU=',
             text: 'Excited to share our latest innovation in AI technology.',
-            time: 'Yesterday',
+            time: '2 hours ago',
             platform: 'LinkedIn',
             color: '#3b82f6',
             icon: 'logo-linkedin',
         },
         {
-            image: '../../assets/images/placeholder.jpeg',
+            image: 'https://media.istockphoto.com/id/1453838542/photo/last-light-on-mount-sneffels.jpg?s=1024x1024&w=is&k=20&c=H9NmtkT7rvHX_8gGtVEXQywZPaINNBTbOovIu1TbJvU=',
             text: 'The perfect blend of creativity and technology. When passion meets purpose.',
-            time: '2 days ago',
+            time: '2 hours ago',
+            platform: 'Twitter',
+            color: '#000000',
+            icon: 'logo-twitter',
+        },
+        {
+            image: 'https://media.istockphoto.com/id/1453838542/photo/last-light-on-mount-sneffels.jpg?s=1024x1024&w=is&k=20&c=H9NmtkT7rvHX_8gGtVEXQywZPaINNBTbOovIu1TbJvU=',
+            text: 'The perfect blend of creativity and technology. When passion meets purpose.',
+            time: '2 hours ago',
+            platform: 'Facebook',
+            color: '#3b5998',
+            icon: 'logo-facebook',
+        },
+        {
+            image: 'https://media.istockphoto.com/id/1453838542/photo/last-light-on-mount-sneffels.jpg?s=1024x1024&w=is&k=20&c=H9NmtkT7rvHX_8gGtVEXQywZPaINNBTbOovIu1TbJvU=',
+            text: 'The perfect blend of creativity and technology. When passion meets purpose.',
+            time: '2 hours ago',
             platform: 'Twitter',
             color: '#f97316',
-            icon: 'logo-twitter',
+            icon: 'logo-snapchat',
         },
     ];
 
@@ -53,11 +70,25 @@ const SavedCaptionsScreen = () => {
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterContainer}>
             {['All', 'Instagram', 'Twitter', 'LinkedIn', 'Facebook', 'Snapchat'].map((filter, index) => (
-            <TouchableOpacity key={index} style={styles.filterButton}>
-                <Text style={styles.filterText}>{filter}</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.filterButton,
+                  selectedFilter === filter && styles.selectedFilterButton, // Apply different style when selected
+                ]}
+                onPress={() => setSelectedFilter(filter)}
+              >
+                <Text
+                  style={[
+                    styles.filterText,
+                    selectedFilter === filter && styles.selectedFilterText, // Change text color when selected
+                  ]}
+                >
+                  {filter}
+                </Text>
+              </TouchableOpacity>
             ))}
-        </ScrollView>
+          </ScrollView>
 
         <View style={styles.sortContainer}>
             <Text style={styles.sortText}>Sort by: Recent</Text>
@@ -158,7 +189,12 @@ const styles = StyleSheet.create({
   filterText: { 
     color: '#000', 
     fontSize: 16 
-
+  },
+  selectedFilterButton: {
+    backgroundColor: '#7C3AED', 
+  },
+  selectedFilterText: {
+    color: '#FFFFFF', 
   },
   sortContainer: {
     flexDirection: 'row',
@@ -181,12 +217,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     borderRadius: 8,
     marginBottom: 15,
+    alignItems: 'center',
   },
   captionImage: { 
-    width: 50, 
-    height: 50, 
+    width: 70, 
+    height: 70, 
     borderRadius: 8, 
-    marginRight: 10 
+    marginRight: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
 
   },
   captionTextContainer: { 
