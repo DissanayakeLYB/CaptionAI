@@ -91,7 +91,29 @@ const SavedCaptionsScreen = () => {
             </View>
             ))}
         </ScrollView>
-        </SafeAreaView>
+            <View style={styles.navBar}>
+              <TouchableOpacity onPress={() => router.push('/home')}>
+                <View style={styles.navBarCard}>
+                  <Ionicons name="home-outline" size={24} color="#A0AEC0" />
+                  <Text style={styles.navBarText} >Home</Text>
+                </View>
+              </TouchableOpacity>
+                       
+              <TouchableOpacity onPress={() => router.push('/saved_captions')}>
+                <View style={styles.navBarCard}>
+                  <Ionicons name="time-outline" size={24} color="#7C3AED" />
+                  <Text style={styles.navBarTextActive} >History</Text>
+                </View>
+              </TouchableOpacity>
+                        
+              <TouchableOpacity onPress={() => router.push('/settings')}>
+                <View style={styles.navBarCard}>
+                  <Ionicons name="settings-outline" size={24} color="#A0AEC0" />
+                  <Text style={styles.navBarText} >Settings</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+      </SafeAreaView>
   );
 };
 
@@ -192,6 +214,26 @@ const styles = StyleSheet.create({
     fontSize: 14, 
     color: '#A1A1A1', 
   },
+  navBar: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-around', 
+    width: '100%', 
+    paddingVertical: 10, 
+    borderTopWidth: 1, 
+    borderColor: '#E2E8F0', 
+    marginTop: 20,
+  },
+  navBarCard: { 
+    alignItems: 'center',
+  },
+  navBarText: { 
+    fontSize: 12, 
+    color: '#A0AEC0'
+  },
+  navBarTextActive: {
+    fontSize: 12,
+    color: '#7C3AED',
+  }
 });
 
 export default SavedCaptionsScreen;
