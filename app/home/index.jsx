@@ -38,8 +38,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
+        
         <View style={styles.header}>
           <View style={styles.logoContainer}>
             <Image style={styles.logoImage} source={require('../../assets/images/logo.png')} />
@@ -47,83 +47,86 @@ const HomeScreen = () => {
           </View>
           <Ionicons name="person-circle-outline" size={30} color={'#00000080'} />
         </View>
-        <TouchableOpacity style={styles.uploadBox} onPress={pickImage}>
-          {image ? (
-            <Image source={{ uri: image }} style={styles.image} />
-          ) : (
-            <View style={styles.uploadContent}>
-              <Ionicons name="cloud-upload-outline" size={40} color="#7C3AED" />
-              <Text style={styles.uploadText}>Tap to upload image</Text>
-              <Text style={styles.uploadSubText}>JPG, PNG up to 10MB</Text>
-            </View>
-          )}
-        </TouchableOpacity>
 
-        <View style={styles.sectionTitleContainer}>
-          <Text style={styles.sectionTitle}>AI Generated Captions</Text>
-          <TouchableOpacity style={styles.regenerateButton}>
-            <Ionicons name="reload-outline" size={16} color="#7C3AED" />
-            <Text style={styles.regenerateText}>Regenerate</Text>
+          <ScrollView showsVerticalScrollIndicator={false}>
+          <TouchableOpacity style={styles.uploadBox} onPress={pickImage}>
+            {image ? (
+              <Image source={{ uri: image }} style={styles.image} />
+            ) : (
+              <View style={styles.uploadContent}>
+                <Ionicons name="cloud-upload-outline" size={40} color="#7C3AED" />
+                <Text style={styles.uploadText}>Tap to upload image</Text>
+                <Text style={styles.uploadSubText}>JPG, PNG up to 10MB</Text>
+              </View>
+            )}
           </TouchableOpacity>
-        </View>
 
-
-        <View style={styles.captionCardContainer}>
-          <View style={styles.captionCard}>
-            <View style={styles.captionHeadline}>
-              <Ionicons name="logo-instagram" size={14} color="#7C3AED" />
-              <Text style={{ fontSize: 16, color: '#7C3AED'}}>Trendy</Text>
-            </View>
-            <Text style={styles.captionText}>Living my best life with this amazing view! #blessed #wanderlust #photooftheday</Text>
-            <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
-              <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="create-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Edit</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Copy</Text>
-              </TouchableOpacity>
-            </View>
+          <View style={styles.sectionTitleContainer}>
+            <Text style={styles.sectionTitle}>AI Generated Captions</Text>
+            <TouchableOpacity style={styles.regenerateButton}>
+              <Ionicons name="reload-outline" size={16} color="#7C3AED" />
+              <Text style={styles.regenerateText}>Regenerate</Text>
+            </TouchableOpacity>
           </View>
 
-          <View style={styles.captionCard}>
-            <View style={styles.captionHeadline}>
-              <Ionicons name="logo-linkedin" size={14} color="#3b82f6" />
-              <Text style={{ fontSize: 16, color: '#3b82f6'}}>Professional</Text>
-            </View>
-            <Text style={styles.captionText}>Excited to share insights from our latest innovation project. Embracing new challenges and pushing boundaries.</Text>
-            <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
-              <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="create-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Edit</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Copy</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
 
-          <View style={styles.captionCard}>
-            <View style={styles.captionHeadline}>
-              <Ionicons name="logo-twitter" size={14} color="#f97316" />
-              <Text style={{ fontSize: 16, color: '#f97316'}}>Funny</Text>
+          <View style={styles.captionCardContainer}>
+            <View style={styles.captionCard}>
+              <View style={styles.captionHeadline}>
+                <Ionicons name="logo-instagram" size={14} color="#7C3AED" />
+                <Text style={{ fontSize: 16, color: '#7C3AED'}}>Trendy</Text>
+              </View>
+              <Text style={styles.captionText}>Living my best life with this amazing view! #blessed #wanderlust #photooftheday</Text>
+              <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
+                <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Copy</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            <Text style={styles.captionText}>When your coffee kicks in and suddenly you’re ready to conquer the world... or at least your inbox!</Text>
-            <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
-              <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="create-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Edit</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
-                <Text style={styles.copyText}>Copy</Text>
-              </TouchableOpacity>
+
+            <View style={styles.captionCard}>
+              <View style={styles.captionHeadline}>
+                <Ionicons name="logo-linkedin" size={14} color="#3b82f6" />
+                <Text style={{ fontSize: 16, color: '#3b82f6'}}>Professional</Text>
+              </View>
+              <Text style={styles.captionText}>Excited to share insights from our latest innovation project. Embracing new challenges and pushing boundaries.</Text>
+              <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
+                <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Copy</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-            
+
+            <View style={styles.captionCard}>
+              <View style={styles.captionHeadline}>
+                <Ionicons name="logo-twitter" size={14} color="#f97316" />
+                <Text style={{ fontSize: 16, color: '#f97316'}}>Funny</Text>
+              </View>
+              <Text style={styles.captionText}>When your coffee kicks in and suddenly you’re ready to conquer the world... or at least your inbox!</Text>
+              <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
+                <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Copy</Text>
+                </TouchableOpacity>
+              </View>
+              
+            </View>
           </View>
-        </View>
+        </ScrollView>
 
         <View style={styles.navBar}>
           <TouchableOpacity onPress={() => router.push('/home')}>
@@ -148,14 +151,16 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,  
     alignItems: 'center',
-    paddingHorizontal: 20 
+    paddingHorizontal: 20,
+    width: '100%',
+    justifyContent: 'center',
   },
   header:{
     flexDirection: 'row', 
