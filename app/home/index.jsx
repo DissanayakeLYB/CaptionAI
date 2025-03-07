@@ -73,10 +73,10 @@ const HomeScreen = () => {
           <View style={styles.captionCardContainer}>
             <View style={styles.captionCard}>
               <View style={styles.captionHeadline}>
-                <Ionicons name="logo-instagram" size={14} color="#7C3AED" />
-                <Text style={{ fontSize: 16, color: '#7C3AED'}}>Trendy</Text>
+                <Ionicons name="logo-instagram" size={14} color="#d62976" />
+                <Text style={{ fontSize: 16, color: '#d62976'}}>Trendy</Text>
               </View>
-              <Text style={styles.captionText}>Living my best life with this amazing view! #blessed #wanderlust #photooftheday</Text>
+              <Text style={styles.captionText}>📍Chasing sunsets & collecting memories. 🌅✨ #GoldenHour #Wanderlust</Text>
               <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
                 <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                   <Ionicons name="create-outline" size={16} color="#7C3AED" />  
@@ -94,7 +94,7 @@ const HomeScreen = () => {
                 <Ionicons name="logo-linkedin" size={14} color="#3b82f6" />
                 <Text style={{ fontSize: 16, color: '#3b82f6'}}>Professional</Text>
               </View>
-              <Text style={styles.captionText}>Excited to share insights from our latest innovation project. Embracing new challenges and pushing boundaries.</Text>
+              <Text style={styles.captionText}>Excited to share insights from our latest innovation project. Embracing new challenges and pushing boundaries. 🚀 #GrowthMindset #CareerDevelopment </Text>
               <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
                 <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                   <Ionicons name="create-outline" size={16} color="#7C3AED" />  
@@ -109,8 +109,8 @@ const HomeScreen = () => {
 
             <View style={styles.captionCard}>
               <View style={styles.captionHeadline}>
-                <Ionicons name="logo-twitter" size={14} color="#f97316" />
-                <Text style={{ fontSize: 16, color: '#f97316'}}>Funny</Text>
+                <Ionicons name="logo-twitter" size={14} color="#000000" />
+                <Text style={{ fontSize: 16, color: '#000000'}}>Funny</Text>
               </View>
               <Text style={styles.captionText}>When your coffee kicks in and suddenly you’re ready to conquer the world... or at least your inbox!</Text>
               <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
@@ -122,8 +122,43 @@ const HomeScreen = () => {
                   <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
                   <Text style={styles.copyText}>Copy</Text>
                 </TouchableOpacity>
+              </View>              
+            </View>
+
+            <View style={styles.captionCard}>
+              <View style={styles.captionHeadline}>
+                <Ionicons name="logo-facebook" size={14} color="#3b5998" />
+                <Text style={{ fontSize: 16, color: '#3b5998'}}>Social</Text>
               </View>
-              
+              <Text style={styles.captionText}>Just another day making memories! 📸✨ #GoodVibesOnly</Text>
+              <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
+                <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Copy</Text>
+                </TouchableOpacity>
+              </View>              
+            </View>
+
+            <View style={styles.captionCard}>
+              <View style={styles.captionHeadline}>
+                <Ionicons name="logo-snapchat" size={14} color="#f97316" />
+                <Text style={{ fontSize: 16, color: '#f97316'}}>Snap</Text>
+              </View>
+              <Text style={styles.captionText}>Mood. 🌟📷</Text>
+              <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
+                <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="create-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Edit</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+                  <Ionicons name="copy-outline" size={16} color="#7C3AED" />  
+                  <Text style={styles.copyText}>Copy</Text>
+                </TouchableOpacity>
+              </View>              
             </View>
           </View>
         </ScrollView>
