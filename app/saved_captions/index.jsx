@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Entypo } from '@expo/vector-icons';
 
 const SavedCaptionsScreen = () => {
     const router = useRouter();
@@ -74,14 +74,14 @@ const SavedCaptionsScreen = () => {
                 key={index}
                 style={[
                   styles.filterButton,
-                  selectedFilter === filter && styles.selectedFilterButton, // Apply different style when selected
+                  selectedFilter === filter && styles.selectedFilterButton, 
                 ]}
                 onPress={() => setSelectedFilter(filter)}
               >
                 <Text
                   style={[
                     styles.filterText,
-                    selectedFilter === filter && styles.selectedFilterText, // Change text color when selected
+                    selectedFilter === filter && styles.selectedFilterText, 
                   ]}
                 >
                   {filter}
@@ -103,17 +103,17 @@ const SavedCaptionsScreen = () => {
                   <View style={styles.captionFooter}>
                       <View style={styles.captionInfo}>
                         <View style={{ flexDirection: 'row', gap: 5 }}>
-                          <Ionicons name='time-outline' size={18} color='#A1A1A1' />
+                          <Ionicons name='time-outline' size={14} color='#A1A1A1' />
                           <Text style={styles.captionTime}>{caption.time}</Text>
                         </View>
                         
                         <View style={{ flexDirection: 'row', gap: 15 }}>
-                          <Ionicons name={caption.icon} size={18} color={caption.color} />
+                          <Ionicons name={caption.icon} size={14} color={caption.color} />
                           <TouchableOpacity>
-                            <Ionicons name='copy-outline' size={18} color='#7C3AED' />
+                            <Ionicons name='copy-outline' size={14} color='#7C3AED' />
                           </TouchableOpacity>
                           <TouchableOpacity>
-                            <Ionicons name='share' size={18} color='#7C3AED' />
+                            <Entypo name='share' size={14} color='#7C3AED' />
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -151,7 +151,7 @@ const SavedCaptionsScreen = () => {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#fff' 
+    backgroundColor: '#fff', 
   },
   headerContainer: { 
     flexDirection: 'row', 
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
   filterText: { 
     color: '#000', 
-    fontSize: 16 
+    fontSize: 14 
   },
   selectedFilterButton: {
     backgroundColor: '#7C3AED', 
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 15,
     alignItems: 'center',
+    elevation: 2,
   },
   captionImage: { 
     width: 70, 
@@ -232,11 +233,10 @@ const styles = StyleSheet.create({
     flex: 1 
   },
   captionText: { 
-    fontSize: 16, 
+    fontSize: 15, 
     color: '#000', 
     marginBottom: 10,
-    lineHeight: 25,
-    letterSpacing: 0.5    
+    lineHeight: 25,    
 
   },
   captionFooter: {
@@ -250,17 +250,18 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   captionTime: { 
-    fontSize: 14, 
+    fontSize: 12, 
     color: '#A1A1A1', 
   },
   navBar: { 
     flexDirection: 'row', 
     justifyContent: 'space-around', 
-    width: '100%', 
-    paddingVertical: 10, 
+    width: '90%', 
+    paddingVertical: 10,
     borderTopWidth: 1, 
     borderColor: '#E2E8F0', 
     marginTop: 20,
+    marginHorizontal: 20,
   },
   navBarCard: { 
     alignItems: 'center',
