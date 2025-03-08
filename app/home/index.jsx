@@ -45,7 +45,9 @@ const HomeScreen = () => {
             <Image style={styles.logoImage} source={require('../../assets/images/logo.png')} />
             <Text style={styles.logoText}>CaptionAI</Text>
           </View>
-          <Ionicons name="person-circle-outline" size={30} color={'#00000080'} />
+          <TouchableOpacity onPress={() => router.push('/profile')}>
+            <Ionicons name="person-circle-outline" size={30} color={'#00000080'} />
+          </TouchableOpacity>
         </View>
 
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -76,7 +78,7 @@ const HomeScreen = () => {
                 <Ionicons name="logo-instagram" size={14} color="#d62976" />
                 <Text style={{ fontSize: 16, color: '#d62976'}}>Trendy</Text>
               </View>
-              <Text style={styles.captionText}>📍Chasing sunsets & collecting memories. 🌅✨ #GoldenHour #Wanderlust</Text>
+              <Text style={styles.captionText}> Chasing sunsets & collecting memories. 🌅✨ #GoldenHour #Wanderlust</Text>
               <View style={{ flexDirection: 'row', gap: 15, justifyContent: 'flex-end',}}>
                 <TouchableOpacity onPress={() => router.push('/edits')} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                   <Ionicons name="create-outline" size={16} color="#7C3AED" />  
@@ -196,6 +198,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     width: '100%',
     justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
   },
   header:{
     flexDirection: 'row', 
@@ -261,18 +264,18 @@ const styles = StyleSheet.create({
   regenerateText: { 
     fontSize: 14, 
     color: '#7C3AED',
-    letterSpacing: 0.3,
   },
   captionCardContainer: { 
     width: '100%', 
-    alignItems: 'center' 
+    alignItems: 'center',
+    marginBottom: 25,
   },
   captionCard: { 
     width: '95%', 
     backgroundColor: '#FFFFFF', 
     borderRadius: 10, 
     padding: 15, 
-    marginVertical: 8, 
+    marginVertical: 10, 
     elevation: 2 
   },
   captionHeadline: { 
@@ -282,10 +285,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   captionText: { 
-    fontSize: 16, 
+    fontSize: 15, 
     color: '#2D3748', 
     marginBottom: 10,
-    letterSpacing:0.3,
     lineHeight: 22
   },
   copyText: { 
