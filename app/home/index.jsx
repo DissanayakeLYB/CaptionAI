@@ -15,16 +15,6 @@ const HomeScreen = () => {
     Inter_400Regular,
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -38,7 +28,7 @@ const HomeScreen = () => {
   };
 
   return (
-      <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
+      <SafeAreaView style={styles.container}>
         
         <View style={styles.header}>
           <View style={styles.logoContainer}>
