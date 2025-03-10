@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, version} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Switch, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons, Fontisto, MaterialIcons, AntDesign, Feather, Octicons, FontAwesome, SimpleLineIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { isEnabled } from 'react-native/Libraries/Performance/Systrace';
 
 const SettingsScreen = () => {
     const router = useRouter();
@@ -17,8 +18,8 @@ const SettingsScreen = () => {
     const [isEnabledNightMode, setisEnabledNightMode] = useState(false);
     const [isEnabledNotifications, setisEnabledNotifications] = useState(false);
 
-    const toggleSwitch1 = () => setisEnabledNightMode(previousState => !previousState);
-    const toggleSwitch2 = () => setisEnabledNotifications(previousState => !previousState);
+    const toggleSwitchNightMode = () => setisEnabledNightMode(previousState => !previousState);
+    const toggleSwitchNotifications = () => setisEnabledNotifications(previousState => !previousState);
     
     return (
         <SafeAreaView style={styles.container} >
@@ -38,7 +39,7 @@ const SettingsScreen = () => {
                             <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Formal and Business-like</Text>
                         </View>
                         <Switch 
-                            trackColor={{ false: '#76757780', true: '#9595FF' }} 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
                             thumbColor={activeSwitch === 'professional' ? '#8B5CF6' : '#8E8E8E'}
                             onValueChange={() => toggleSwitch('professional')} 
                             value={activeSwitch === 'professional'} 
@@ -51,7 +52,7 @@ const SettingsScreen = () => {
                             <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Friendly and relaxed</Text>
                         </View>
                         <Switch 
-                            trackColor={{ false: '#76757780', true: '#9595FF' }} 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
                             thumbColor={activeSwitch === 'casual' ? '#8B5CF6' : '#8E8E8E'}
                             onValueChange={() => toggleSwitch('casual')} 
                             value={activeSwitch === 'casual'} 
@@ -64,7 +65,7 @@ const SettingsScreen = () => {
                             <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Humorous and engaging</Text>
                         </View>
                         <Switch 
-                            trackColor={{ false: '#76757780', true: '#9595FF' }} 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
                             thumbColor={activeSwitch === 'witty' ? '#8B5CF6' : '#8E8E8E'}
                             onValueChange={() => toggleSwitch('witty')} 
                             value={activeSwitch === 'witty'} 
@@ -81,7 +82,7 @@ const SettingsScreen = () => {
                             <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Night Mode</Text>
                         </View>
                         <Switch 
-                            trackColor={{ false: '#76757780', true: '#9595FF' }} 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
                             thumbColor={activeSwitch === 'night-mode' ? '#8B5CF6' : '#8E8E8E'}
                             onValueChange={() => toggleSwitch('night-mode')} 
                             value={activeSwitch === 'night-mode'} 
@@ -105,10 +106,10 @@ const SettingsScreen = () => {
                             <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Notifications</Text>
                         </View>
                         <Switch 
-                            trackColor={{ false: '#76757780', true: '#9595FF' }} 
-                            thumbColor={activeSwitch === 'notifications' ? '#8B5CF6' : '#8E8E8E'}
-                            onValueChange={() => toggleSwitch('notifications')} 
-                            value={activeSwitch === 'notifications'} 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
+                            thumbColor={isEnabledNightMode ? '#8B5CF6' : '#8E8E8E'}
+                            onValueChange={toggleSwitchNightMode} 
+                            value={isEnabledNightMode}
                             />
                     </View>
                     
@@ -157,10 +158,11 @@ const SettingsScreen = () => {
                     </View>
                     
                 </View>
-                <TouchableOpacity style={styles.logoutButton} onPress={() => router.push('/login')}>
+                <TouchableOpacity style={styles.logoutButton} onPress={() => router.push('/log_in')}>
                     <SimpleLineIcons style={styles.logoutSymbol} name="logout" size={24} color="black" />
                     <Text style={styles.logoutText} >Log Out</Text>
                 </TouchableOpacity>
+                <Text style={styles.versionText}>Version 1.0.0</Text>
             </ScrollView>
             <View style={styles.navBar}>
                 <TouchableOpacity onPress={() => router.push('/home')}>
@@ -193,8 +195,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF',
-        padding: 10,
-        
+        paddingHorizontal: 20,
     },
     headerContainer: {
         flexDirection: 'row',
@@ -210,8 +211,9 @@ const styles = StyleSheet.create({
         letterSpacing: 0.3
     },
     captionSettingsContainer : {
-        paddingHorizontal: 40,
-        paddingVertical: 10,
+        paddingHorizontal: 20,
+        paddingTop: 20,
+        paddingBottom: 10,
         borderRadius: 10,
         backgroundColor: '#F9F9F9',
         marginBottom: 20
@@ -246,7 +248,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#ef4444',
+        backgroundColor: 'white',
         padding: 10,
         borderRadius: 10,
         borderColor: '#ef4444',
@@ -255,13 +257,19 @@ const styles = StyleSheet.create({
     },
     logoutSymbol: {
         marginRight: 10,
-        color: 'white'
+        color: '#ef4444'
     },
     logoutText: {
         fontSize: 18,
         fontWeight: '600',
         letterSpacing: 0.3,
-        color: 'white'
+        color: '#ef4444'
+    },
+    versionText: {
+        textAlign: 'center',
+        fontSize: 16,
+        color: '#A0AEC0',
+        marginBottom: 20
     }
 });
 
