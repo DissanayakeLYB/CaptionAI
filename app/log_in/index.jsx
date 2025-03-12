@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts, Inter_400Regular } from '@expo-google-fonts/inter';
 import * as SplashScreen from 'expo-splash-screen';
 import { useRouter } from 'expo-router';
 
@@ -9,24 +8,10 @@ const LoginScreen = () => {
 
   const router = useRouter();
 
-  const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <ScrollView>
       <LinearGradient colors={['#7C3AED', '#2241b1']} style={styles.gradient}>
-        <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
+        <SafeAreaView style={styles.container} >
           <Image style={styles.image} source={require('../../assets/images/logo.png')} />
           <Text style={styles.logoText}>CaptionAI</Text>
 
