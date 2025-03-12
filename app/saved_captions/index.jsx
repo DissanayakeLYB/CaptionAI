@@ -52,7 +52,7 @@ const SavedCaptionsScreen = () => {
     ];
 
     return (
-        <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.headerContainer}>
           <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name='chevron-back' size={24} color='#000' />
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
     fontSize: 24, 
     fontWeight: '600', 
     marginLeft: 8 
-
   },
   searchInput: {
     backgroundColor: '#F5F5F5',
