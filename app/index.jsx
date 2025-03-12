@@ -24,7 +24,7 @@ const LandingScreen = () => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{flex: 1, minHeight: '100%'}}>
       <LinearGradient
         colors={['#7C3AED', '#2241b1']}
         style={styles.gradient}
@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
     minHeight: '100%',
   },
   image : {
-    marginTop: 50,
     marginBottom: 10,
     borderRadius: 20,
     width: 70,
@@ -94,6 +93,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerContainer: {
     alignItems: 'center',
