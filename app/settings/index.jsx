@@ -23,20 +23,20 @@ const SettingsScreen = () => {
     
     return (
         <SafeAreaView style={styles.container} >
-                <View style={styles.headerContainer}>
-                    <TouchableOpacity onPress={() => router.back()}>
-                        <Ionicons name="chevron-back" size={24} color="black" style={styles.backIcon} />
-                    </TouchableOpacity>
-                    <Text style={styles.headerText}>Settings</Text>
-                </View>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.captionSettingsContainer}>
+            <View style={styles.headerContainer}>
+                <TouchableOpacity onPress={() => router.back()}>
+                    <Ionicons name='chevron-back' size={24} color='#000' />
+                </TouchableOpacity>
+                <Text style={styles.headerText}>Settings</Text>
+            </View>
+            <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal: 20}}>
+                <View style={styles.settingsCard}>
                     <Text style={{ fontSize: 20, fontWeight: 700, marginBottom: 15, letterSpacing: 0.3 }}>Caption Settings</Text>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View>
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3, marginBottom: 3 }}>Professional Tone</Text>
-                            <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Formal and Business-like</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Professional Tone</Text>
+                            <Text style={{ fontSize: 14, color: '#949494', letterSpacing: 0.3 }}>Formal and Business-like</Text>
                         </View>
                         <Switch 
                             trackColor={{ false: '#767577', true: '#9595FF' }} 
@@ -46,10 +46,10 @@ const SettingsScreen = () => {
                             />
                     </View>
         
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View>
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3, marginBottom: 3 }}>Casual Tone</Text>
-                            <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Friendly and relaxed</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Casual Tone</Text>
+                            <Text style={{ fontSize: 14, color: '#949494', letterSpacing: 0.3 }}>Friendly and relaxed</Text>
                         </View>
                         <Switch 
                             trackColor={{ false: '#767577', true: '#9595FF' }} 
@@ -59,10 +59,10 @@ const SettingsScreen = () => {
                             />
                     </View>
         
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View>
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3, marginBottom: 3 }}>Witty Tone</Text>
-                            <Text style={{ fontSize: 16, color: '#949494', letterSpacing: 0.3 }}>Humorous and engaging</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Witty Tone</Text>
+                            <Text style={{ fontSize: 14, color: '#949494', letterSpacing: 0.3 }}>Humorous and engaging</Text>
                         </View>
                         <Switch 
                             trackColor={{ false: '#767577', true: '#9595FF' }} 
@@ -73,87 +73,87 @@ const SettingsScreen = () => {
                     </View>
                     
                 </View>
-                <View style={styles.captionSettingsContainer}>
+                <View style={styles.settingsCard}>
                     <Text style={{ fontSize: 20, fontWeight: 700, marginBottom: 10, letterSpacing: 0.3 }}>App Settings</Text>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                            <Fontisto name="night-clear" size={18} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Night Mode</Text>
-                        </View>
-                        <Switch 
-                            trackColor={{ false: '#767577', true: '#9595FF' }} 
-                            thumbColor={activeSwitch === 'night-mode' ? '#8B5CF6' : '#8E8E8E'}
-                            onValueChange={() => toggleSwitch('night-mode')} 
-                            value={activeSwitch === 'night-mode'} 
-                            />
-                    </View>
-                    
-                    <View style={styles.captionSettingsBundle}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                            <Ionicons name="language" size={18} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Language</Text>
-                        </View>
-                        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 1 }}>
-                            <Text style={{ fontSize: 16, color: '#767577', letterSpacing: 0.3 }}>English</Text>
-                            <Ionicons name="chevron-forward" size={24} color="#767577" style={styles.backIcon} />
-                        </TouchableOpacity>
-                    </View>
-                    
-                    <View style={styles.captionSettingsBundle}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                            <Ionicons name="notifications-outline" size={20} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Notifications</Text>
+                            <Fontisto name="night-clear" size={16} color="black" />
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Night Mode</Text>
                         </View>
                         <Switch 
                             trackColor={{ false: '#767577', true: '#9595FF' }} 
                             thumbColor={isEnabledNightMode ? '#8B5CF6' : '#8E8E8E'}
                             onValueChange={toggleSwitchNightMode} 
                             value={isEnabledNightMode}
-                            />
+                        />
+                    </View>
+                    
+                    <View style={styles.settingsBundle}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                            <Ionicons name="language" size={16} color="black" />
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Language</Text>
+                        </View>
+                        <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', gap: 1 }}>
+                            <Text style={{ fontSize: 16, color: '#767577', letterSpacing: 0.3, fontWeight: 800 }}>English</Text>
+                            <Ionicons name="chevron-forward" size={24} color="#767577" />
+                        </TouchableOpacity>
+                    </View>
+                    
+                    <View style={styles.settingsBundle}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                            <Ionicons name="notifications-outline" size={20} color="black" />
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Notifications</Text>
+                        </View>
+                        <Switch 
+                            trackColor={{ false: '#767577', true: '#9595FF' }} 
+                            thumbColor={isEnabledNotifications ? '#8B5CF6' : '#8E8E8E'}
+                            onValueChange={toggleSwitchNotifications} 
+                            value={isEnabledNotifications}
+                        />
                     </View>
                     
                 </View>
-                <View style={styles.captionSettingsContainer}>
+                <View style={styles.settingsCard}>
                     <Text style={{ fontSize: 20, fontWeight: 700, marginBottom: 20, letterSpacing: 0.3 }}>Support & Legal</Text>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                             <AntDesign name="questioncircleo" size={20} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Help Center</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Help Center</Text>
                         </View>
                         <TouchableOpacity>
-                            <Ionicons name="chevron-forward" size={24} color="#767577" style={styles.backIcon} />
+                            <Ionicons name="chevron-forward" size={24} color="#767577" />
                         </TouchableOpacity>
                     </View>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                             <Feather name="lock" size={20} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Privacy Policy</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Privacy Policy</Text>
                         </View>
                         <TouchableOpacity>
-                            <Ionicons name="chevron-forward" size={24} color="#767577" style={styles.backIcon} />
+                            <Ionicons name="chevron-forward" size={24} color="#767577" />
                         </TouchableOpacity>
                     </View>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                             <Octicons name="note" size={20} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Terms of Service</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Terms of Service</Text>
                         </View>
                         <TouchableOpacity>
-                            <Ionicons name="chevron-forward" size={24} color="#767577" style={styles.backIcon} />
+                            <Ionicons name="chevron-forward" size={24} color="#767577" />
                         </TouchableOpacity>
                     </View>
                     
-                    <View style={styles.captionSettingsBundle}>
+                    <View style={styles.settingsBundle}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 10 }}>
                             <FontAwesome name="envelope-o" size={20} color="black" />
-                            <Text style={{ fontSize: 18, letterSpacing: 0.3 }}>Contact Support</Text>
+                            <Text style={{ fontSize: 16, letterSpacing: 0.3 }}>Contact Support</Text>
                         </View>
                         <TouchableOpacity>
-                            <Ionicons name="chevron-forward" size={24} color="#767577" style={styles.backIcon} />
+                            <Ionicons name="chevron-forward" size={24} color="#767577" />
                         </TouchableOpacity>
                     </View>
                     
@@ -192,25 +192,21 @@ const SettingsScreen = () => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#FFFFFF',
-        paddingHorizontal: 20,
+    container: { 
+        flex: 1, 
+        backgroundColor: '#fff', 
     },
-    headerContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 20,
+    headerContainer: { 
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        padding: 16 
     },
-    backIcon: {
-        marginRight: 10,
+    headerText: { 
+        fontSize: 24, 
+        fontWeight: '600', 
+        marginLeft: 8 
     },
-    headerText: {
-        fontSize: 20,
-        fontWeight: '600',
-        letterSpacing: 0.3
-    },
-    captionSettingsContainer : {
+    settingsCard : {
         paddingHorizontal: 20,
         paddingTop: 20,
         paddingBottom: 10,
@@ -218,7 +214,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F9F9F9',
         marginBottom: 20
     },
-    captionSettingsBundle: {
+    settingsBundle: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -227,11 +223,12 @@ const styles = StyleSheet.create({
     navBar: { 
         flexDirection: 'row', 
         justifyContent: 'space-around', 
-        width: '100%', 
-        paddingVertical: 10, 
+        width: '90%', 
+        paddingVertical: 10,
         borderTopWidth: 1, 
         borderColor: '#E2E8F0', 
         marginTop: 20,
+        marginHorizontal: 20,
     },
     navBarCard: { 
         alignItems: 'center',
@@ -260,7 +257,7 @@ const styles = StyleSheet.create({
         color: '#ef4444'
     },
     logoutText: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: '600',
         letterSpacing: 0.3,
         color: '#ef4444'
