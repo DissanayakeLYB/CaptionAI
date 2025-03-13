@@ -172,7 +172,7 @@ const SettingsScreen = () => {
                     </View>
                 </TouchableOpacity>
                              
-                <TouchableOpacity onPress={() => router.push('/saved_captions')}>
+                <TouchableOpacity onPress={() => router.push('/history')}>
                     <View style={styles.navBarCard}>
                         <Ionicons name="time-outline" size={24} color="#A0AEC0" />
                         <Text style={styles.navBarText} >History</Text>
@@ -212,7 +212,8 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         borderRadius: 10,
         backgroundColor: '#F9F9F9',
-        marginBottom: 20
+        marginBottom: 20,
+        elevation: 1
     },
     settingsBundle: {
         flexDirection: 'row',
@@ -227,7 +228,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderTopWidth: 1, 
         borderColor: '#E2E8F0', 
-        marginTop: 20,
         marginHorizontal: 20,
     },
     navBarCard: { 
