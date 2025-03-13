@@ -57,7 +57,7 @@ const SavedCaptionsScreen = () => {
           <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name='chevron-back' size={24} color='#000' />
           </TouchableOpacity>
-            <Text style={styles.headerText}>Saved Captions</Text>
+            <Text style={styles.headerText}>History</Text>
         </View>
 
         <TextInput
@@ -90,10 +90,6 @@ const SavedCaptionsScreen = () => {
             ))}
           </ScrollView>
 
-        <View style={styles.sortContainer}>
-            <Text style={styles.sortText}>Sort by: Recent</Text>
-        </View>
-
         <ScrollView style={styles.captionsContainer}>
             {captions.map((caption, index) => (
             <View key={index} style={styles.captionCard}>
@@ -103,17 +99,17 @@ const SavedCaptionsScreen = () => {
                   <View style={styles.captionFooter}>
                       <View style={styles.captionInfo}>
                         <View style={{ flexDirection: 'row', gap: 5 }}>
-                          <Ionicons name='time-outline' size={14} color='#A1A1A1' />
+                          <Ionicons name='time-outline' size={18} color='#A1A1A1' />
                           <Text style={styles.captionTime}>{caption.time}</Text>
                         </View>
                         
-                        <View style={{ flexDirection: 'row', gap: 15 }}>
-                          <Ionicons name={caption.icon} size={14} color={caption.color} />
+                        <View style={{ flexDirection: 'row', gap: 20 }}>
+                          <Ionicons name={caption.icon} size={18} color={caption.color} />
                           <TouchableOpacity>
-                            <Ionicons name='copy-outline' size={14} color='#7C3AED' />
+                            <Ionicons name='copy-outline' size={18} color='#7C3AED' />
                           </TouchableOpacity>
                           <TouchableOpacity>
-                            <Entypo name='share' size={14} color='#7C3AED' />
+                            <Entypo name='share' size={18} color='#7C3AED' />
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -130,7 +126,7 @@ const SavedCaptionsScreen = () => {
                 </View>
               </TouchableOpacity>
                        
-              <TouchableOpacity onPress={() => router.push('/saved_captions')}>
+              <TouchableOpacity onPress={() => router.push('/history')}>
                 <View style={styles.navBarCard}>
                   <Ionicons name="time-outline" size={24} color="#7C3AED" />
                   <Text style={styles.navBarTextActive} >History</Text>
@@ -168,15 +164,15 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 16,
     borderRadius: 8,
-    fontSize: 14,
+    fontSize: 16,
     color: '#000',
+    letterSpacing: 0.3,
   },
   filterContainer: { 
     paddingHorizontal: 16, 
     flexDirection: 'row', 
-    minHeight: 30,
-    maxHeight: 30
-
+    height: 50,
+    marginVertical: 10,
   },
   filterButton: {
     paddingVertical: 6,
@@ -184,27 +180,19 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     marginRight: 8,
+    minHeight: 32,
+    maxHeight: 32,
   },
   filterText: { 
     color: '#000', 
-    fontSize: 14 
+    fontSize: 16,
+    letterSpacing: 0.3,
   },
   selectedFilterButton: {
     backgroundColor: '#7C3AED', 
   },
   selectedFilterText: {
     color: '#FFFFFF', 
-  },
-  sortContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    alignItems: 'center',
-  },
-  sortText: { 
-    fontSize: 14, 
-    color: '#A1A1A1' 
   },
   captionsContainer: { 
     paddingHorizontal: 20 
@@ -232,10 +220,11 @@ const styles = StyleSheet.create({
     flex: 1 
   },
   captionText: { 
-    fontSize: 15, 
+    fontSize: 16, 
     color: '#000', 
-    marginBottom: 10,
-    lineHeight: 25,    
+    marginBottom: 15,
+    lineHeight: 25,
+    letterSpacing: 0.3,    
 
   },
   captionFooter: {
@@ -249,7 +238,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   captionTime: { 
-    fontSize: 12, 
+    fontSize: 14, 
     color: '#A1A1A1', 
   },
   navBar: { 
@@ -259,7 +248,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderTopWidth: 1, 
     borderColor: '#E2E8F0', 
-    marginTop: 20,
     marginHorizontal: 20,
   },
   navBarCard: { 
