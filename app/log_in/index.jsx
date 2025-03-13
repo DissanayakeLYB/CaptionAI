@@ -10,7 +10,7 @@ const LoginScreen = () => {
 
   return (
     <ScrollView>
-      <LinearGradient colors={['#7C3AED', '#2241b1']} style={styles.gradient}>
+      <LinearGradient colors={['#6466f1', '#a756f7']} style={styles.gradient}>
         <SafeAreaView style={styles.container} >
           <Image style={styles.image} source={require('../../assets/images/logo.png')} />
           <Text style={styles.logoText}>CaptionAI</Text>

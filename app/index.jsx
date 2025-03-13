@@ -26,7 +26,7 @@ const LandingScreen = () => {
   return (
     <ScrollView style={{flex: 1, minHeight: '100%'}}>
       <LinearGradient
-        colors={['#7C3AED', '#2241b1']}
+        colors={['#6466f1', '#a756f7']}
         style={styles.gradient}
       >
         <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
