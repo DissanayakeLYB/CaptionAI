@@ -25,7 +25,7 @@ const ProfileScreen = () => {
                 <Text style={styles.planText}>Free Plan</Text>
             </View>
             <LinearGradient
-                colors={['#7C3AED', '#8B5CF6']}
+                colors={['#6466f1', '#a756f7']}
                 style={styles.upgradeContainer}
             >
                 <Text style={styles.upgradeTitle}>Upgrade to Premium</Text>
@@ -37,42 +37,28 @@ const ProfileScreen = () => {
                     <Text style={styles.upgradeButtonText}>Upgrade Now</Text>
                 </TouchableOpacity>
             </LinearGradient>
-            <View style={styles.planComparisonContainer}>
-                <Text style={styles.planComparisonTitle}>Plan Comparison</Text>
-                {renderPlanComparison('Monthly Captions', '50', 'Unlimited')}
-                {renderPlanComparison('AI Processing Speed', 'Standard', 'Priority')}
-                {renderPlanComparison('Caption History', '24 hours', 'Unlimited')}
-                {renderPlanComparison('Custom Tones', 'Basic', 'Advanced')}
-                {renderPlanComparison('Export Formats', '2', 'All')}
+            <Text style={styles.comparisonText}>Plan Comparison</Text>
+            <View style={styles.container}>
+                {tableData.map((item, index) => (
+                    <View style={styles.row} key={index}>
+                        <Text style={styles.cellOption}>{item.option}</Text>
+                        <Text style={styles.cellFree}>{item.free}</Text>
+                        <Text style={styles.cellPremium}>{item.premium}</Text>
+                    </View>
+                ))}
             </View>
         </ScrollView>
     );
 }
 
-function renderPlanComparison(label, free, premium) {
-    return (
-        <View style={styles.comparisonRow}>
-            <Text style={styles.labelText}>{label}</Text>
-            <View style={styles.comparisonValues}>
-                <Text style={styles.freeText}>{free}</Text>
-                <Text style={styles.premiumText}>{premium}</Text>
-            </View>
-        </View>
-    );
-}
+const tableData = [
+    { option: 'Monthly Captions', free: 50, premium: 'Unlimited' },
+    { option: 'AI Processing Speed', free: 'Standard', premium: 'Priority' },
+    { option: 'Caption History', free: '24 hours', premium: 'Unlimited' },
+    { option: 'Custome Tones', free: 'Basic', premium: 'Advanced' },
+    { option: 'Expert Formats', free: 2, premium: 'All' },
+];
 
-const navbar = () => {
-    return (
-        <View style={styles.navbar}>
-            <TouchableOpacity onPress={() => router.navigate('Home')}>
-                <Ionicons name="home" size={24} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('Profile')}>
-                <Ionicons name="person" size={24} color="black" />
-            </TouchableOpacity>
-        </View>
-    );
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -83,32 +69,34 @@ const styles = StyleSheet.create({
     headerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20,
-    },
-    backIcon: {
-        marginRight: 10,
     },
     headerText: {
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: '600',
+        marginLeft: 8, 
+        letterSpacing: 0.5,
+
     },
     profileContainer: {
         alignItems: 'center',
-        marginBottom: 20,
+        marginVertical: 50,
     },
     profileImage: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+        width: 120,
+        height: 120,
+        borderRadius: 100,
         marginBottom: 10,
     },
     profileName: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: '600',
-        marginBottom: 10,
+        marginBottom: 5,
+        letterSpacing: 0.3,
     },
     planText: {
         color: '#6B7280',
+        fontSize: 18,
+        letterSpacing: 0.3,
     },
     upgradeContainer: {
         padding: 20,
@@ -117,17 +105,20 @@ const styles = StyleSheet.create({
     },
     upgradeTitle: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: '600',
         marginBottom: 5,
+        letterSpacing: 0.1,
     },
     upgradeDescription: {
         color: 'white',
         marginBottom: 15,
+        fontSize: 16,
+        letterSpacing: 0.2,
     },
     priceText: {
         color: 'white',
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: '700',
         marginBottom: 15,
     },
@@ -140,35 +131,39 @@ const styles = StyleSheet.create({
     upgradeButtonText: {
         color: '#7C3AED',
         fontWeight: '600',
-    },
-    planComparisonContainer: {
-        backgroundColor: 'white',
-        borderRadius: 16,
-        padding: 20,
-    },
-    planComparisonTitle: {
-        fontSize: 18,
-        fontWeight: '600',
-        marginBottom: 10,
-    },
-    comparisonRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 10,
-    },
-    labelText: {
         fontSize: 16,
-        color: '#374151',
+        letterSpacing: 0.1,
     },
-    comparisonValues: {
+    comparisonText: {
+        fontSize: 20,
+        fontWeight: '600',
+        marginTop: 10,
+        letterSpacing: 0.2,
+        marginHorizontal: 25,
+    },
+    row: {
         flexDirection: 'row',
+        borderBottomColor: '#ccc',
     },
-    freeText: {
-        color: '#6B7280',
-        marginRight: 15,
+    cellOption: {
+        flex: 2,
+        padding: 10,
+        textAlign: 'left',
+        fontSize: 18,
     },
-    premiumText: {
-        color: '#7C3AED',
+    cellFree: {
+        flex: 1,
+        paddingVertical: 10,
+        textAlign: 'center',
+        fontSize: 16,
+        color: '#9095a0'
+    },
+    cellPremium: {
+        flex: 1,
+        padding: 10,
+        textAlign: 'center',
+        fontSize: 16,
+        color: '#6366f1',
         fontWeight: '600',
     },
 });
